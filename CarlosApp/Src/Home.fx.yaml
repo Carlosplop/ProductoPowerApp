@@ -1,0 +1,70 @@
+"Home As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+
+    RectQuickActionBar3 As rectangle:
+        Height: =88
+        Width: =Parent.Width
+        ZIndex: =1
+
+    LblAppName1 As label:
+        Align: =Align.Center
+        Height: =88
+        Size: =30
+        Text: ="Maestro de Productos Versión 1.0"
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Canvas1 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width
+        Y: =RectQuickActionBar3.Y + RectQuickActionBar3.Height
+        ZIndex: =3
+
+        DataCard1 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =Parent.Height - 100
+            Width: =Parent.Width
+            WidthFit: =false
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Label1 As label:
+                Size: =25
+                Text: ="Productos"
+                Width: =219
+                X: =211
+                Y: =54
+                ZIndex: =1
+
+            Label2 As label:
+                Height: =71
+                Size: =25
+                Text: ="Ordenes de Productos"
+                Width: =485
+                X: =781
+                Y: =38
+                ZIndex: =2
+
+            Image5 As image:
+                Height: =212
+                Image: ='1336538'
+                OnSelect: =Navigate(VistaPro, ScreenTransition.None)
+                Width: =240
+                X: =190
+                Y: =125
+                ZIndex: =3
+
+            Image6 As image:
+                Height: =211
+                Image: ='1524539'
+                OnSelect: =Navigate(VistaOrd, ScreenTransition.None)
+                Width: =401
+                X: =781
+                Y: =126
+                ZIndex: =4
+

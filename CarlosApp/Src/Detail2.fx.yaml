@@ -1,0 +1,340 @@
+Detail2 As screen:
+
+    RectQuickActionBar1_3 As rectangle:
+        Height: =64
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Title2_3 As label:
+        Align: =Align.Center
+        DisplayMode: =DisplayMode.View
+        Height: =64
+        PaddingRight: =10
+        Text: ="Ver orden existente"
+        Width: =Parent.Width
+        ZIndex: =3
+
+    Icon3_1 As icon.Edit:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =58
+        Icon: =Icon.Edit
+        OnSelect: =EditForm(Form5);Navigate(Edit2, ScreenTransition.None)
+        Width: =51
+        X: =1299
+        Y: =3
+        ZIndex: =4
+
+    Icon1_4 As icon.ChevronLeft:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(VistaOrd, ScreenTransition.None)
+        Width: =51
+        X: =25
+        Y: =6
+        ZIndex: =5
+
+    Icon7_1 As icon.Trash:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Trash
+        OnSelect: =Remove([@'Ordenes de Productos'], TemplateGalleryList2.Selected); If (IsEmpty(Errors([@'Ordenes de Productos'], TemplateGalleryList2.Selected)), Back())
+        X: =1206
+        ZIndex: =6
+
+    FormViewer2 As formViewer:
+        DataSource: =[@'Ordenes de Productos']
+        Height: =632
+        Item: =TemplateGalleryList2.Selected
+        Width: =1300
+        X: =39
+        Y: =99
+        ZIndex: =7
+
+        Producto_DataCard1 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Producto"
+            Default: =ThisItem.Producto
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Ordenes de Productos'],DataSourceInfo.DisplayName,"Producto")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue12.Selected
+            Width: =433
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+            DataCardKey12 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue12 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Items: =Choices([@'Ordenes de Productos'].Producto)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Ordenes de Productos'.Producto,DataCardValue12.SearchText)
+                SelectMultiple: =false
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                ZIndex: =2
+
+            ErrorMessage1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue12.Y + DataCardValue12.Height
+                ZIndex: =3
+
+            StarVisible1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey12.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey12.Y
+                ZIndex: =4
+
+        "'Numero de la orden_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Numerodelaorden"
+            Default: =ThisItem.'Numero de la orden'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Ordenes de Productos'],DataSourceInfo.DisplayName,"Numerodelaorden")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =433
+            X: =1
+            Y: =0
+            ZIndex: =8
+
+            DataCardKey13 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue13 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                ZIndex: =2
+
+        "'Usuario solicitante_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Usuariosolicitante"
+            Default: =ThisItem.'Usuario solicitante'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Ordenes de Productos'],DataSourceInfo.DisplayName,"Usuariosolicitante")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =433
+            X: =2
+            Y: =0
+            ZIndex: =8
+
+            DataCardKey14 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                ZIndex: =2
+
+        "'Usuario aprobador_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Usuarioaprobador"
+            Default: =ThisItem.'Usuario aprobador'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Ordenes de Productos'],DataSourceInfo.DisplayName,"Usuarioaprobador")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =433
+            X: =0
+            Y: =1
+            ZIndex: =8
+
+            DataCardKey15 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue15 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey15.Y + DataCardKey15.Height + 5
+                ZIndex: =2
+
+        "'Cantidad solicitada_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Cantidadsolicitada"
+            Default: =ThisItem.'Cantidad solicitada'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Ordenes de Productos'],DataSourceInfo.DisplayName,"Cantidadsolicitada")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =433
+            X: =1
+            Y: =1
+            ZIndex: =8
+
+            DataCardKey16 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue16 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey16.Y + DataCardKey16.Height + 5
+                ZIndex: =2
+
+        "'Cantidad aprobada_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Cantidadaprobada"
+            Default: =ThisItem.'Cantidad aprobada'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Ordenes de Productos'],DataSourceInfo.DisplayName,"Cantidadaprobada")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =433
+            X: =2
+            Y: =1
+            ZIndex: =8
+
+            DataCardKey17 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue17 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                ZIndex: =2
+
+        "'Anexos de la orden_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Anexosdelaorden"
+            Default: =ThisItem.'Anexos de la orden'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Ordenes de Productos'],DataSourceInfo.DisplayName,"Anexosdelaorden")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =433
+            X: =0
+            Y: =2
+            ZIndex: =8
+
+            DataCardKey18 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue18 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                ZIndex: =2
+

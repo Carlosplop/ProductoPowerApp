@@ -1,0 +1,34 @@
+{
+  "e5961746-8107-41ca-bd79-667f0e2836bb": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1591/1.0.1591.2961/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://ccolabs.sharepoint.com/sites/CarlosAndrsLpezApp": {
+        "dataSources": {
+          "Ordenes de Productos": {
+            "tableName": "e5fc7956-25fa-491b-9f6f-f0be7b03ce43"
+          },
+          "Productos": {
+            "tableName": "e5cb1493-fdd7-47a2-a7d6-48f07338f213"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Productos",
+      "Ordenes de Productos"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "e5961746-8107-41ca-bd79-667f0e2836bb"
+  }
+}
